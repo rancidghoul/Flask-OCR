@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+      }
+      .navbar {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+      .navbar a:hover {
+        background-color: white;
+        color: #4caf50;
+        font-size: 18px;
+        padding: 5px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease, font-size 0.3s ease;
+      }
+      .profile-container {
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        max-width: 600px;
+        margin: auto;
+      }
+      h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      .user-detail {
+        margin: 10px 0;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div>
+        <a href="/index">Home</a>
+        <a href="{{url_for('user_uploads')}}" class="view-uploaded-files"
+          >Uploads</a
+        >
+        <a href="{{ url_for('logout') }}">Logout</a>
+      </div>
+    </div>
+
+    <div class="profile-container">
+      <h1 style="color: #4caf50">User Profile</h1>
+      <div class="user-detail"><strong>Username:</strong> {{ username }}</div>
+      <div class="user-detail"><strong>Email:</strong> {{ email }}</div>
+      <div class="user-detail"><strong>Phone:</strong> {{ phone }}</div>
+      <div class="user-detail">
+        <strong>Number of Uploads:</strong> {{ upload_count }}
+      </div>
+    </div>
+  </body>
+</html>
